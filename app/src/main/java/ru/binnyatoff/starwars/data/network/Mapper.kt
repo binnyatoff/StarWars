@@ -16,7 +16,7 @@ fun ResultPeople.toResultMainDTO(): ResultMainDTO {
         starships = this.starships.size,
         films = this.films.map { filmUrl->
             filmUrlToFilmTitle(filmUrl)
-        }.toString(),
+        }.toString().drop(1).dropLast(films.size -1),
         manufacturer = null,
         model = null,
         passengers = null,

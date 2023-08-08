@@ -2,13 +2,10 @@ package ru.binnyatoff.starwars.data.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.PrimaryKey
 import ru.binnyatoff.starwars.data.network.models.TypeOfResult
 
-@Entity(tableName = "result_main")
+@Entity(tableName = "result_main", primaryKeys = ["name"])
 data class ResultMainDTO(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
     @ColumnInfo(name = "type")
     val type: TypeOfResult,
     @ColumnInfo(name = "name")

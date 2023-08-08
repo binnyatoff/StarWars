@@ -21,7 +21,6 @@ class FavoriteViewModel @Inject constructor(private var dao: Dao) : ViewModel() 
             is FavoriteEvent.ScreenInit -> getFromDatabase()
             is FavoriteEvent.DeleteItem -> {
                 deleteItem(event.resultMainDTO)
-                getFromDatabase()
             }
         }
     }
@@ -35,6 +34,7 @@ class FavoriteViewModel @Inject constructor(private var dao: Dao) : ViewModel() 
     private fun deleteItem(resultMainDTO: ResultMainDTO){
         viewModelScope.launch {
             dao.deleteResult(resultMainDTO)
+            getFromDatabase()
         }
     }
 }
